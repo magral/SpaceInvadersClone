@@ -115,22 +115,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="HealthManager.cpp" />
+    <ClCompile Include="Characters\Enemy.cpp" />
+    <ClCompile Include="Characters\Systems\Collider.cpp" />
+    <ClCompile Include="Characters\Systems\HealthManager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Scoreboard.cpp" />
-    <ClCompile Include="Subject.cpp" />
+    <ClCompile Include="Characters\Player.cpp" />
+    <ClCompile Include="Objects\Bullet.cpp" />
+    <ClCompile Include="Systems\Collision.cpp" />
+    <ClCompile Include="Systems\Rect.cpp" />
+    <ClCompile Include="Systems\Scoreboard.cpp" />
+    <ClCompile Include="Events\Subject.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Enemy.h" />
-    <ClInclude Include="HealthManager.h" />
-    <ClInclude Include="Observer.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Subject.h" />
+    <ClInclude Include="Characters\Enemy.h" />
+    <ClInclude Include="Characters\Systems\Collider.h" />
+    <ClInclude Include="Characters\Systems\HealthManager.h" />
+    <ClInclude Include="Events\Observer.h" />
+    <ClInclude Include="Characters\Player.h" />
+    <ClInclude Include="Events\Subject.h" />
+    <ClInclude Include="Objects\Bullet.h" />
+    <ClInclude Include="Systems\Rect.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="ship.bmp" />
+    <Image Include="Assets\ship.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

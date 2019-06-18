@@ -17,3 +17,12 @@ void Enemy::onDeath() {
 	//delete me
 	notify();
 }
+
+Collider* Enemy::getCollider() {
+	return collider;
+}
+
+Enemy::~Enemy() {
+	delete(healthManager);
+	delete(collider);
+}

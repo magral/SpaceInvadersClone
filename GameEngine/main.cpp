@@ -2,8 +2,8 @@
 #include <Windows.h>
 #include <conio.h>
 
-#include "Player.h"
-#include "Enemy.h"
+#include "./Characters/Player.h"
+#include "./Characters/Enemy.h"
 
 int main() {
 	// ============

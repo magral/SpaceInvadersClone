@@ -2,14 +2,14 @@
 #include <Windows.h>
 #include <conio.h>
 
-#include "HealthManager.h"
+#include "./Systems/HealthManager.h"
 #include "Player.h"
 	
 Player::Player(HDC hdc) {
 
 	//TODO: Make some consts for starting position.
 	this->position = { 320, 352, 352, 320 };
-	this->brush = CreatePatternBrush((HBITMAP)LoadImage(NULL, "ship.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE));
+	this->brush = CreatePatternBrush((HBITMAP)LoadImage(NULL, "../Assets/ship.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE));
 	this->hdc = hdc;
 	FillRect(hdc, &this->position, this->brush);
 	healthManager = new HealthManager(100);
@@ -17,6 +17,10 @@ Player::Player(HDC hdc) {
 
 HealthManager* Player::getHealthManager() {
 	return healthManager;
+}
+
+Collider* Player::getCollider() {
+	return collider;
 }
 
 void Player::doAttack() {
@@ -54,4 +58,6 @@ void Player::processInput() {
 
 Player::~Player() {
 	DeleteObject(this->brush);
+	delete(healthManager);
+	delete(collider);
 }
