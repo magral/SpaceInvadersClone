@@ -1,33 +1,33 @@
 #pragma once
 template <typename T> struct Rect {
 private:
-	T left;
-	T top;
-	T right;
-	T bottom;
+	T x;
+	T y;
+	T width;
+	T height;
 public: 
-	T getLeft() {
-		return left;
+	T getX() {
+		return x;
 	};
-	T getTop() {
-		return top;
+	T getY() {
+		return y;
 	};
-	T getRight() {
-		return right;
+	T getWidth() {
+		return width;
 	}
-	T getBottom() {
-		return bottom;
+	T getHeight() {
+		return height;
 	};
-	Rect(T l, T t, T r, T b) {
-		left = l;
-		top = t;
-		right = r;
-		bottom = b;
+	Rect(T x1, T y1, T height, T width) {
+		x = x1;
+		y = y1;
+		this.height = height;
+		this.width = width;
 	};
 	Rect(const Rect &r2) {
-		left = r2->getLeft();
-		top = r2->getTop();
-		right = r2->getRight();
-		bottom = r2->getBottom();
+		x = r2->getX();
+		y = r2->getY();
+		height = r2->getHeight();
+		width = r2->getWidth();
 	};
 };

@@ -6,7 +6,8 @@ struct Collider {
 private:
 	Rect<int>* rect;
 public:
-	Collider(Rect<int>* currentPosition, int height, int length);
+	Collider(int x, int y, int height, int width);
 	Collider(Rect<int>* currentPosition);
+	Rect<int>* getRect();
 	~Collider();
 };
