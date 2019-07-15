@@ -1,7 +1,9 @@
+#include <conio.h>
+
 #include "Bullet.h"
 #include "../Systems/Rect.h"
 
-Bullet::Bullet(Rect<int>* startingPosition) {
+Bullet::Bullet(RECT* startingPosition) {
 	currentPosition = startingPosition;
 }
 

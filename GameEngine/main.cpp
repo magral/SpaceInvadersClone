@@ -1,6 +1,7 @@
 #include <iostream>
 #include <Windows.h>
 #include <conio.h>
+#include <ctime>
 
 #include "./Characters/Player.h"
 #include "./Characters/Enemy.h"
@@ -29,7 +30,11 @@ int main() {
 	// ===========
 	//  Game Loop
 	// ===========
+
+	time_t oldTime = time(NULL);
 	while (true) {
+
+		time_t deltaTime = time(NULL) - oldTime;
 		
 		playerCharacter->processInput();
 		// add exit condition

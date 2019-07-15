@@ -1,4 +1,5 @@
 #pragma once
+#include <Windows.h>
 
 #include "../Characters/Systems/Collider.h"
 #include "../Systems/Rect.h"
@@ -6,11 +7,11 @@
 class Bullet {
 private:
 	Collider* collider;
-	Rect<int>* currentPosition;
-
-public:
-	Bullet(Rect<int>* startingPosition);
-	Collider* getCollider();
+	RECT* currentPosition;
 	void moveTowards(Rect<int> position);
+public:
+	Bullet(RECT* startingPosition);
+	Collider* getCollider();
+	
 	~Bullet();
 };

@@ -134,6 +134,7 @@
     <ClInclude Include="Characters\Player.h" />
     <ClInclude Include="Events\Subject.h" />
     <ClInclude Include="Objects\Bullet.h" />
+    <ClInclude Include="Systems\Collision.h" />
     <ClInclude Include="Systems\Rect.h" />
   </ItemGroup>
   <ItemGroup>
