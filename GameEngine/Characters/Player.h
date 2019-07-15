@@ -13,7 +13,7 @@ enum Keys {
 	KEY_DOWN = 80,
 	KEY_LEFT = 75,
 	KEY_RIGHT = 77,
-	KEY_SPACE = 64,
+	KEY_SPACE = ' ',
 };
 
 class Player {

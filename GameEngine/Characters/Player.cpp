@@ -1,6 +1,7 @@
 #include <iostream>
 #include <Windows.h>
 #include <conio.h>
+#include <thread>
 
 #include "./Systems/HealthManager.h"
 #include "Player.h"
@@ -26,11 +27,12 @@ Collider* Player::getCollider() {
 
 void Player::doAttack() {
 	// Create bullet and launch towards enemies
-	Bullet* bullet = new Bullet(position);
+	Bullet* bullet = new Bullet(new RECT{ position->left, position->top - 16, position->right, position->bottom - 16}, hdc);
+	std::thread bulletThread(&Bullet::move, bullet);
+	bulletThread.join();
 }
 
 void Player::processInput() {
-	int input;
 	while (true) {
 		switch (int c = _getch()) {
 		case KEY_RIGHT:

@@ -21,8 +21,8 @@ public:
 	Rect(T x1, T y1, T height, T width) {
 		x = x1;
 		y = y1;
-		this.height = height;
-		this.width = width;
+		this->height = height;
+		this->width = width;
 	};
 	Rect(const Rect &r2) {
 		x = r2->getX();

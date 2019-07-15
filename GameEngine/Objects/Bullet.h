@@ -8,10 +8,13 @@ class Bullet {
 private:
 	Collider* collider;
 	RECT* currentPosition;
-	void moveTowards(Rect<int> position);
+	HBRUSH brush;
+	HBRUSH solidBrush;
+	HDC hdc;
+	void paintBullet();
 public:
-	Bullet(RECT* startingPosition);
+	Bullet(RECT* startingPosition, HDC hdc);
 	Collider* getCollider();
-	
+	void move();
 	~Bullet();
 };

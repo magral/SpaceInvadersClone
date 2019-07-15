@@ -122,7 +122,6 @@
     <ClCompile Include="Characters\Player.cpp" />
     <ClCompile Include="Objects\Bullet.cpp" />
     <ClCompile Include="Systems\Collision.cpp" />
-    <ClCompile Include="Systems\Rect.cpp" />
     <ClCompile Include="Systems\Scoreboard.cpp" />
     <ClCompile Include="Events\Subject.cpp" />
   </ItemGroup>
@@ -138,6 +137,8 @@
     <ClInclude Include="Systems\Rect.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Assets\bullet.bmp" />
+    <Image Include="Assets\enemy.bmp" />
     <Image Include="Assets\ship.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

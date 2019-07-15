@@ -57,9 +57,6 @@
     <ClCompile Include="Objects\Bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Systems\Rect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Characters\Enemy.h">
@@ -93,6 +90,12 @@
   <ItemGroup>
     <Image Include="Assets\ship.bmp">
       <Filter>Source Files\Assets</Filter>
+    </Image>
+    <Image Include="Assets\bullet.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\enemy.bmp">
+      <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
 </Project>

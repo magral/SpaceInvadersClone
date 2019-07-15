@@ -22,4 +22,5 @@ bool Collision::checkCollision(Collider* collider1, Collider* collider2) {
 	{
 		return true;
 	}
+	return false;
 }
