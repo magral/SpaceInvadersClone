@@ -2,7 +2,8 @@
 #include <Windows.h>
 #include <conio.h>
 
-#include "HealthManager.h"
+#include "./Systems/HealthManager.h"
+#include "./Systems/Collider.h"
 
 #ifndef PLAYER_H_
 #define PLAYER_H_
@@ -18,14 +19,16 @@ enum Keys {
 class Player {
 private:
 	HealthManager* healthManager;
+	Collider* collider;
 	void doAttack();
 	HBRUSH brush;
-	RECT position;
+	RECT* position;
 	HDC hdc;
 
 public:
 	Player(HDC hdc);
 	HealthManager* getHealthManager();
+	Collider* getCollider();
 	void processInput();
 	~Player();
 };

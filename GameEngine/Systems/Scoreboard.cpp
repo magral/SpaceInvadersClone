@@ -1,4 +1,4 @@
-#include "Observer.h"
+#include "../Events/Observer.h"
 
 class Scoreboard : Observer {
 
