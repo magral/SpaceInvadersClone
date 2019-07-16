@@ -88,14 +88,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\ship.bmp">
-      <Filter>Source Files\Assets</Filter>
-    </Image>
     <Image Include="Assets\bullet.bmp">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Assets\enemy.bmp">
       <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\ship.bmp">
+      <Filter>Source Files\Assets</Filter>
     </Image>
   </ItemGroup>
 </Project>

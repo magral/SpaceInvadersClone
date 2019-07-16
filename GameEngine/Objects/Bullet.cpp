@@ -18,16 +18,15 @@ void Bullet::move() {
 	time_t oldTime = time(nullptr);
 	while (currentPosition->top > 0) {
 		time_t newTime = time(nullptr);
-		if (difftime(newTime, oldTime) >= .1l) {
+		if (difftime(newTime, oldTime) >= .1) {
 			paintBullet();
 			oldTime = newTime;
 		}
 	}
-
+	delete(this);
 }
 
 void Bullet::paintBullet() {
-	//TODO: figure out how to only unpaint the bullet
 	FillRect(this->hdc, currentPosition, solidBrush);
 	currentPosition->bottom -= 16;
 	currentPosition->top -= 16;

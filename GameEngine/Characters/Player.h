@@ -22,6 +22,7 @@ private:
 	Collider* collider;
 	void doAttack();
 	HBRUSH brush;
+	HBRUSH solidBrush;
 	RECT* position;
 	HDC hdc;
 
