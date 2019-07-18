@@ -6,8 +6,8 @@
 #include "../Characters/Systems/Collider.h"
 class Collision {
 private:
-	std::vector<Collider*> colliders;
+	//std::vector<Collider*> colliders;
 public:
 	Collision();
-	bool checkCollision(Collider* collider1, Collider* collider2);
+	bool checkCollision(Collider* collider1, Collider* collider2) const;
 };
