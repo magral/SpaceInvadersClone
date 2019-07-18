@@ -12,32 +12,36 @@ int main() {
 	// ============
 	HWND window = GetConsoleWindow();
 	HDC hdc = GetDC(window);
-
-	//Get the player 'level'
-	//int level;
-	//std::cout << "Please input level of difficulty (1-3):" << std::endl;
-	//std::cin >> level;
+    // Don't check in commented out dead code. 
+    // Makes file messy and code is either required or its not
 
 	//Instantiate Player
 	Player* playerCharacter = new Player(hdc);
-/*
-	//Instantiate Enemies
-	Enemy** enemies;
-	for (int i = 0; i < level * 5; i++) {
-		enemies[i] = new Enemy(level, i, i);
-	}
-	*/
+
 	// ===========
 	//  Game Loop
 	// ===========
 
 	time_t oldTime = time(NULL);
+    time_t frameTime = 100; 
+    // by forcing this frame time you are 
+    // making sure that the movement is not frame rate dependant. 
+    // otherwise you can move faster on a faster computer which is not fair
 	while (true) {
 
 		time_t deltaTime = time(NULL) - oldTime;
 		
 		playerCharacter->processInput();
 		// add exit condition
+        time_t waitTime = frameTime - deltaTime;
+        if (waitTime > 0)
+        {
+            Sleep(DWORD(waitTime));
+        }
+        else
+        {
+            // warn that the game went over the frame time
+        }
 	} 
 	
 	// ===========

@@ -29,33 +29,35 @@ Collider* Player::getCollider() {
 void Player::doAttack() {
 	// Create bullet and launch towards enemies
 	Bullet* bullet = new Bullet(new RECT{ position->left, position->top - 32, position->right, position->bottom - 32}, hdc);
-	std::thread bulletThread(&Bullet::move, bullet);
+	std::thread bulletThread(&Bullet::move, bullet); 
+    // starting up a thread for each bullet is more expensive than just processing the bullets on the same thread
+    // what happens when a bullet hits something and you need to signal the main thread?
+    // If the threads need to write the same memory it is also expensive as you will need to be very careful
 	bulletThread.detach();
 }
 
 void Player::processInput() {
-	while (true) {
-		switch (int c = _getch()) {
-		case KEY_RIGHT:
-			FillRect(this->hdc, position, solidBrush);
-			position->left += 32;
-			position->right += 32;
-			FillRect(this->hdc, position, brush);
-			break;
-		case KEY_LEFT:
-			FillRect(this->hdc, position, solidBrush);
-			position->left -= 32;
-			position->right -= 32;
-			FillRect(this->hdc, position, brush);
-			break;
+    // removed while, input should just be checked and then back to the main loop
+    // should not pause here while waiting for input, 
+    // just test the keys and right back to the main thread
+    switch (int c = _getch()) {
+    case KEY_RIGHT:
+        FillRect(this->hdc, position, solidBrush);
+        position->left += 32; // make this a constant static that is in the header
+        position->right += 32;
+        FillRect(this->hdc, position, brush);
+        break;
+    case KEY_LEFT:
+        FillRect(this->hdc, position, solidBrush);
+        position->left -= 32;
+        position->right -= 32;
+        FillRect(this->hdc, position, brush);
+        break;
 
-		case KEY_SPACE:
-			doAttack();
-			break;
-		}
-	}
-
-	
+    case KEY_SPACE:
+        doAttack();
+        break;
+    }
 }
 
 Player::~Player() {
