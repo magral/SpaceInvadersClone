@@ -15,21 +15,13 @@ Bullet::Bullet(RECT* startingPosition, HDC hdc) {
 }
 
 void Bullet::move() {
-	time_t oldTime = time(nullptr);
-	while (currentPosition->top > 0) {
-		time_t newTime = time(nullptr);
-		if (difftime(newTime, oldTime) >= .1) {
-			paintBullet();
-			oldTime = newTime;
-		}
-	}
-	delete(this);
+	paintBullet();	
 }
 
 void Bullet::paintBullet() {
 	FillRect(this->hdc, currentPosition, solidBrush);
-	currentPosition->bottom -= 16;
-	currentPosition->top -= 16;
+	currentPosition->bottom -= 4;
+	currentPosition->top -= 4;
 	FillRect(this->hdc, currentPosition, brush);
 }
 

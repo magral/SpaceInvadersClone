@@ -1,9 +1,11 @@
 #pragma once
 #include <Windows.h>
 #include <conio.h>
+#include <vector>
 
 #include "./Systems/HealthManager.h"
 #include "./Systems/Collider.h"
+#include "../Objects/Bullet.h"
 
 #ifndef PLAYER_H_
 #define PLAYER_H_
@@ -25,6 +27,7 @@ private:
 	HBRUSH solidBrush;
 	RECT* position;
 	HDC hdc;
+	std::vector<Bullet*> bullets;
 
 	const int playerSize = 32;
 	const int bulletWidthBuffer = 14;
@@ -35,6 +38,7 @@ public:
 	HealthManager* getHealthManager();
 	Collider* getCollider();
 	void processInput();
+	void moveBullets();
 	~Player();
 };
 

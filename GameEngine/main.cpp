@@ -5,6 +5,7 @@
 
 #include "./Characters/Player.h"
 #include "./Characters/Enemy.h"
+#include "./Objects/Bullet.h"
 
 int main() {
 	// ============
@@ -13,20 +14,16 @@ int main() {
 	HWND window = GetConsoleWindow();
 	HDC hdc = GetDC(window);
 
-	//Get the player 'level'
-	//int level;
-	//std::cout << "Please input level of difficulty (1-3):" << std::endl;
-	//std::cin >> level;
-
 	//Instantiate Player
 	Player* playerCharacter = new Player(hdc);
-/*
+
 	//Instantiate Enemies
-	Enemy** enemies;
-	for (int i = 0; i < level * 5; i++) {
-		enemies[i] = new Enemy(level, i, i);
+	std::vector<Enemy*> enemies;
+	for (int i = 0; i <  5; i++) {
+		enemies.push_back(new Enemy(1, i, i));
 	}
-	*/
+	
+
 	// ===========
 	//  Game Loop
 	// ===========
@@ -37,6 +34,8 @@ int main() {
 		time_t deltaTime = time(NULL) - oldTime;
 		
 		playerCharacter->processInput();
+		Sleep(50);
+		playerCharacter->moveBullets();
 		// add exit condition
 	} 
 	

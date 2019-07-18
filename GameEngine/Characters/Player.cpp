@@ -30,12 +30,17 @@ Collider* Player::getCollider() {
 void Player::doAttack() {
 	// Create bullet and launch towards enemies
 	Bullet* bullet = new Bullet(new RECT{ position->left + bulletWidthBuffer, position->top - playerSize, position->right - bulletWidthBuffer, position->bottom - bulletHeight}, hdc);
-	std::thread bulletThread(&Bullet::move, bullet);
-	bulletThread.detach();
+	bullets.push_back(bullet);
+}
+
+void Player::moveBullets() {
+	for (int i = 0; i < bullets.size(); i++) {
+		bullets[i]->move();
+	}
 }
 
 void Player::processInput() {
-	while (true) {
+	if (_kbhit() != 0) {
 		switch (int c = _getch()) {
 		case KEY_RIGHT:
 			FillRect(this->hdc, position, solidBrush);
@@ -43,6 +48,7 @@ void Player::processInput() {
 			position->right += playerSize;
 			FillRect(this->hdc, position, brush);
 			break;
+
 		case KEY_LEFT:
 			FillRect(this->hdc, position, solidBrush);
 			position->left -= playerSize;
@@ -53,10 +59,11 @@ void Player::processInput() {
 		case KEY_SPACE:
 			doAttack();
 			break;
+
+		default:
+			return;
 		}
 	}
-
-	
 }
 
 Player::~Player() {
