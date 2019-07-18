@@ -11,7 +11,8 @@ Player::Player(HDC hdc) {
 
 	//TODO: Make some consts for starting position.
 	this->position = new RECT { 320, 352, 352, 320 };
-	this->brush = CreatePatternBrush((HBITMAP)LoadImage(NULL, "../Assets/ship.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE));
+	HBITMAP image = (HBITMAP)LoadImage(NULL, "../Assets/ship.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+	this->brush = CreatePatternBrush(image);
 	this->solidBrush = CreateSolidBrush(RGB(12, 12, 12));
 	this->hdc = hdc;
 	FillRect(hdc, position, this->brush);
@@ -28,7 +29,7 @@ Collider* Player::getCollider() {
 
 void Player::doAttack() {
 	// Create bullet and launch towards enemies
-	Bullet* bullet = new Bullet(new RECT{ position->left, position->top - 32, position->right, position->bottom - 32}, hdc);
+	Bullet* bullet = new Bullet(new RECT{ position->left + bulletWidthBuffer, position->top - playerSize, position->right - bulletWidthBuffer, position->bottom - bulletHeight}, hdc);
 	std::thread bulletThread(&Bullet::move, bullet);
 	bulletThread.detach();
 }
@@ -38,14 +39,14 @@ void Player::processInput() {
 		switch (int c = _getch()) {
 		case KEY_RIGHT:
 			FillRect(this->hdc, position, solidBrush);
-			position->left += 32;
-			position->right += 32;
+			position->left += playerSize;
+			position->right += playerSize;
 			FillRect(this->hdc, position, brush);
 			break;
 		case KEY_LEFT:
 			FillRect(this->hdc, position, solidBrush);
-			position->left -= 32;
-			position->right -= 32;
+			position->left -= playerSize;
+			position->right -= playerSize;
 			FillRect(this->hdc, position, brush);
 			break;
 

@@ -26,6 +26,10 @@ private:
 	RECT* position;
 	HDC hdc;
 
+	const int playerSize = 32;
+	const int bulletWidthBuffer = 14;
+	const int bulletHeight = 4;
+
 public:
 	Player(HDC hdc);
 	HealthManager* getHealthManager();
