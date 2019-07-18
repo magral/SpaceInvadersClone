@@ -15,6 +15,8 @@ bool Collision::checkCollision(Collider* collider1, Collider* collider2) const {
 	const int height1 = rect1->getHeight() - rect1->getHeight(); // always 0
 	const int height2 = rect2->getHeight() - rect2->getHeight(); // always 0 // unused
 
+    // might want to add comments to the code below so you can remember
+    // what you were thinking when you wrote it
 	if  (rect1->getX() < (rect2->getX() + width2) &&
 		(rect1->getX() + width1) > rect2->getX() &&
 		(rect1->getY() < (rect2->getY() + height2)) &&

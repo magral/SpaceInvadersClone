@@ -23,10 +23,7 @@ int main() {
 	// ===========
 
 	time_t oldTime = time(NULL);
-    time_t frameTime = 100; 
-    // by forcing this frame time you are 
-    // making sure that the movement is not frame rate dependant. 
-    // otherwise you can move faster on a faster computer which is not fair
+    time_t frameTime = 14;
 	while (true) {
 
 		time_t deltaTime = time(NULL) - oldTime;
@@ -37,10 +34,6 @@ int main() {
         if (waitTime > 0)
         {
             Sleep(DWORD(waitTime));
-        }
-        else
-        {
-            // warn that the game went over the frame time
         }
 	} 
 	

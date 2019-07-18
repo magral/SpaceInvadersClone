@@ -38,8 +38,6 @@ void Player::doAttack() {
 
 void Player::processInput() {
     // removed while, input should just be checked and then back to the main loop
-    // should not pause here while waiting for input, 
-    // just test the keys and right back to the main thread
     switch (int c = _getch()) {
     case KEY_RIGHT:
         FillRect(this->hdc, position, solidBrush);
