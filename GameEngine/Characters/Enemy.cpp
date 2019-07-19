@@ -6,7 +6,7 @@
 
 Enemy::Enemy(RECT* pos, HDC hdc) {
 	healthManager = new HealthManager(maxHealth);
-	HBITMAP image = (HBITMAP)LoadImage(NULL, "../Assets/enemy.bmp", IMAGE_BITMAP, 16, 16, LR_LOADFROMFILE);
+	HBITMAP image = (HBITMAP)LoadImage(NULL, "../Assets/enemy.bmp", IMAGE_BITMAP, 32, 32, LR_LOADFROMFILE);
 	this->brush = CreatePatternBrush(image);
 	this->solidBrush = CreateSolidBrush(RGB(12, 12, 12));
 	this->position = pos;

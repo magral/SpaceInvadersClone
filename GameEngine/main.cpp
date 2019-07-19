@@ -19,11 +19,11 @@ int main() {
 
 	//Instantiate Enemies
 	std::vector<Enemy*> enemies;
-	int startingX = 80;
-	int startingY = 96;
+	int startingX = 96;
+	int startingY = 128;
 	for (int i = 1; i < 10; i++) {
-		int offsetX = startingX + (i * 16 * 2);
-		int offsetY = startingY + (i * 16 * 2);
+		int offsetX = startingX + (i * 32 * 2);
+		int offsetY = startingY + (i * 32 * 2);
 		enemies.push_back(new Enemy(new RECT{ offsetX, startingY, offsetY, startingX}, hdc));
 	}
 	
