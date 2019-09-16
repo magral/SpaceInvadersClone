@@ -3,10 +3,12 @@
 
 #include "../Characters/Systems/Collider.h"
 #include "../Systems/Rect.h"
+#include "../Systems/IBoundingBox.h"
+#include "../Systems/BoundingBox.h"
 
-class Bullet {
+class Bullet : public IBoundingBox {
 private:
-	Collider* collider;
+	BoundingBox* collider;
 	RECT* currentPosition;
 	HBRUSH brush;
 	HBRUSH solidBrush;
@@ -14,7 +16,7 @@ private:
 	void paintBullet();
 public:
 	Bullet(RECT* startingPosition, HDC hdc);
-	Collider* getCollider();
+	BoundingBox getBoundingBox() const;
 	void move();
 	~Bullet();
 };

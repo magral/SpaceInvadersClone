@@ -5,21 +5,27 @@
 #include "./Systems/HealthManager.h"
 #include "../Events/Subject.h"
 #include "Systems/Collider.h"
+#include "../Systems/IBoundingBox.h"
+#include "../Systems/BoundingBox.h"
+#include "../Systems/BoundingTree.h"
 
-class Enemy : Subject{
+class Enemy : public IBoundingBox {
 private:
 	HealthManager* healthManager;
-	Collider* collider;
+	BoundingBox* collider;
+	BoundingTree* collisionTree;
 	HBRUSH brush;
 	HBRUSH solidBrush;
 	RECT* position;
 	HDC hdc;
-	void notify();
+	
 	void onDeath();
 	const int maxHealth = 100;
 public:
-	Enemy(RECT* pos, HDC hdc);
+	Enemy(RECT* pos, HDC hdc, BoundingTree* tree);
 	HealthManager* getHealthManager();
-	Collider* getCollider();
+	void checkCurrentStatus();
+	void notify();
+	BoundingBox getBoundingBox() const;
 	~Enemy();
 };

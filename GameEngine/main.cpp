@@ -2,10 +2,13 @@
 #include <Windows.h>
 #include <conio.h>
 #include <ctime>
+#include <memory>
 
 #include "./Characters/Player.h"
 #include "./Characters/Enemy.h"
 #include "./Objects/Bullet.h"
+#include "Systems/BoundingTree.h"
+#include "Systems/IBoundingBox.h"
 
 int main() {
 	// ============
@@ -15,8 +18,9 @@ int main() {
 	HDC hdc = GetDC(window);
 
 	//Instantiate Player
-	Player* playerCharacter = new Player(hdc);
-
+	
+	BoundingTree *tree = new BoundingTree(11);
+	Player* playerCharacter = new Player(hdc, tree);
 	//Instantiate Enemies
 	std::vector<Enemy*> enemies;
 	int startingX = 96;
@@ -24,11 +28,13 @@ int main() {
 	for (int i = 1; i < 10; i++) {
 		int offsetX = startingX + (i * 32 * 2);
 		int offsetY = startingY + (i * 32 * 2);
-		enemies.push_back(new Enemy(new RECT{ offsetX, startingY, offsetY, startingX}, hdc));
+		IBoundingBox *box;
+		Enemy* enemyTmp = new Enemy(new RECT{ offsetX, startingY, offsetY, startingX }, hdc, tree);
+		box = &*enemyTmp;
+		tree->insertObject(box);
+		enemies.push_back(enemyTmp);
 	}
 	
-	
-
 	// ===========
 	//  Game Loop
 	// ===========

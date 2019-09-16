@@ -6,6 +6,9 @@
 #include "./Systems/HealthManager.h"
 #include "./Systems/Collider.h"
 #include "../Objects/Bullet.h"
+#include "../Systems/BoundingTree.h"
+#include "../Systems/BoundingBox.h"
+#include "../Systems/IBoundingBox.h"
 
 #ifndef PLAYER_H_
 #define PLAYER_H_
@@ -18,10 +21,11 @@ enum Keys {
 	KEY_SPACE = ' ',
 };
 
-class Player {
+class Player : public IBoundingBox {
 private:
 	HealthManager* healthManager;
-	Collider* collider;
+	BoundingBox* collider;
+	BoundingTree* collisionTree;
 	void doAttack();
 	HBRUSH brush;
 	HBRUSH solidBrush;
@@ -34,9 +38,9 @@ private:
 	const int bulletHeight = 4;
 
 public:
-	Player(HDC hdc);
+	Player(HDC hdc, BoundingTree* tree);
 	HealthManager* getHealthManager();
-	Collider* getCollider();
+	BoundingBox getBoundingBox() const;
 	void processInput();
 	void moveBullets();
 	~Player();

@@ -121,6 +121,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Characters\Player.cpp" />
     <ClCompile Include="Objects\Bullet.cpp" />
+    <ClCompile Include="Systems\BoundingBox.cpp" />
+    <ClCompile Include="Systems\BoundingTree.cpp" />
     <ClCompile Include="Systems\Collision.cpp" />
     <ClCompile Include="Systems\Scoreboard.cpp" />
     <ClCompile Include="Events\Subject.cpp" />
@@ -133,7 +135,11 @@
     <ClInclude Include="Characters\Player.h" />
     <ClInclude Include="Events\Subject.h" />
     <ClInclude Include="Objects\Bullet.h" />
+    <ClInclude Include="Systems\BoundingBox.h" />
+    <ClInclude Include="Systems\BoundingTree.h" />
     <ClInclude Include="Systems\Collision.h" />
+    <ClInclude Include="Systems\CollisionNode.h" />
+    <ClInclude Include="Systems\IBoundingBox.h" />
     <ClInclude Include="Systems\Rect.h" />
   </ItemGroup>
   <ItemGroup>
