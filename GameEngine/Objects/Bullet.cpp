@@ -34,6 +34,7 @@ BoundingBox Bullet::getBoundingBox() const {
 }
 
 Bullet::~Bullet() {
+	FillRect(this->hdc, currentPosition, solidBrush);
 	delete(collider);
 	delete(currentPosition);
 }

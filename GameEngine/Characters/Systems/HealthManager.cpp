@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "HealthManager.h"
 
 int maxHealth;
@@ -10,6 +12,7 @@ HealthManager::HealthManager(int max) {
 
 int HealthManager::adjustHealth(int delta) {
 	currentHealth += delta;
+	std::cout << currentHealth;
 	return currentHealth;
 }
 

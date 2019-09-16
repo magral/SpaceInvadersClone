@@ -4,7 +4,6 @@
 
 #include "./Systems/HealthManager.h"
 #include "../Events/Subject.h"
-#include "Systems/Collider.h"
 #include "../Systems/IBoundingBox.h"
 #include "../Systems/BoundingBox.h"
 #include "../Systems/BoundingTree.h"

@@ -116,14 +116,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Characters\Enemy.cpp" />
-    <ClCompile Include="Characters\Systems\Collider.cpp" />
     <ClCompile Include="Characters\Systems\HealthManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Characters\Player.cpp" />
     <ClCompile Include="Objects\Bullet.cpp" />
     <ClCompile Include="Systems\BoundingBox.cpp" />
     <ClCompile Include="Systems\BoundingTree.cpp" />
-    <ClCompile Include="Systems\Collision.cpp" />
     <ClCompile Include="Systems\Scoreboard.cpp" />
     <ClCompile Include="Events\Subject.cpp" />
   </ItemGroup>
@@ -143,9 +141,15 @@
     <ClInclude Include="Systems\Rect.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\bullet.bmp" />
-    <Image Include="Assets\enemy.bmp" />
-    <Image Include="Assets\ship.bmp" />
+    <Image Include="Assets\bullet.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="Assets\enemy.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </Image>
+    <Image Include="Assets\ship.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </Image>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

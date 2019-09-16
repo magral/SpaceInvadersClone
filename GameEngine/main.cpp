@@ -2,7 +2,6 @@
 #include <Windows.h>
 #include <conio.h>
 #include <ctime>
-#include <memory>
 
 #include "./Characters/Player.h"
 #include "./Characters/Enemy.h"
@@ -16,10 +15,10 @@ int main() {
 	// ============
 	HWND window = GetConsoleWindow();
 	HDC hdc = GetDC(window);
-
-	//Instantiate Player
 	
+	//Instantiate Collision tree
 	BoundingTree *tree = new BoundingTree(11);
+	//Instantiate Player
 	Player* playerCharacter = new Player(hdc, tree);
 	//Instantiate Enemies
 	std::vector<Enemy*> enemies;

@@ -48,12 +48,6 @@
     <ClCompile Include="Events\Subject.cpp">
       <Filter>Source Files\Events</Filter>
     </ClCompile>
-    <ClCompile Include="Systems\Collision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Characters\Systems\Collider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Objects\Bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
